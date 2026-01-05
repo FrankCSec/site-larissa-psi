@@ -1,0 +1,459 @@
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Larissa Barbagelata • Psicoterapia</title>
+
+    <!-- Fonts (substitua pelos arquivos reais caso tenha Groteska/Glacial) -->
+    <!-- Glacial Indifference (base) + fallback -->
+    <!-- OBS: Glacial Indifference não está no Google Fonts. Use arquivos locais ou substituto temporário -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      /* Glacial Indifference (local) */
+      @font-face {
+        font-family: 'Glacial Indifference';
+        src: url('assets/fonts/GlacialIndifference-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Glacial Indifference';
+        src: url('assets/fonts/GlacialIndifference-Bold.otf') format('opentype');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        /* Paleta oficial da identidade visual */
+        --bg: #f7f5f1;          /* off-white quente */
+        --paper: #ffffff;      /* branco puro */
+        --ink: #4a2f24;        /* marrom tipográfico */
+        --muted: #8b7a6e;      /* marrom acinzentado */
+        --line: #e4ddd7;       /* divisórias suaves */
+
+        --accent: #7c2d1c;     /* vinho escuro */
+        --accent2: #c85d3a;    /* terracota */
+        --sage: #c9cec5;       /* verde acinzentado */
+        --rose: #e0a48a;       /* rosé */
+        --warm: #d8ab72;       /* mostarda */
+      }
+
+      body { font-family: 'Glacial Indifference', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
+      h1, h2, h3, .display { font-family: 'Glacial Indifference', 'Inter', system-ui, sans-serif; }
+
+      /* Smooth anchor scroll */
+      html { scroll-behavior: smooth; }
+
+      /* Offset pro header sticky ao clicar no menu */
+      section[id] { scroll-margin-top: 88px; }
+
+      /* Estado ativo do menu (aba selecionada) */
+      .nav-link {
+        position: relative;
+        padding: 6px 2px;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: var(--ink);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 180ms ease;
+        opacity: 0.7;
+      }
+      .nav-link:hover::after { transform: scaleX(1); }
+      .nav-link.active { color: var(--accent2); }
+      .nav-link.active::after {
+        background: var(--accent2);
+        transform: scaleX(1);
+        opacity: 1;
+      }
+
+      /* Divisória horizontal clean entre seções do corpo */
+      .section-block {
+        border-top: 1px solid var(--line);
+        margin-top: 3.5rem;   /* ~mt-14 */
+        padding-top: 3.5rem;  /* espaço após a linha */
+      }
+      @media (min-width: 768px) {
+        .section-block {
+          margin-top: 5rem;  /* ~mt-20 */
+          padding-top: 5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-[var(--bg)] text-[var(--ink)]">
+    <!-- Header (bem parecido com sites minimalistas: fino, muito respiro, sem “barra alta”) -->
+    <header class="sticky top-0 z-50 border-b border-[var(--line)] bg-[var(--paper)]/90 backdrop-blur">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="h-24 flex items-center justify-between">
+          <!-- Logo: controle por ALTURA para não inflar o header; width auto mantém proporção -->
+          <a href="#home" class="flex items-center gap-3">
+            <img src="assets/images/logo1.png" alt="Logo" class="h-20 w-auto object-contain" />
+          </a>
+
+          <nav class="hidden md:flex items-center gap-8 text-sm">
+            <a href="#sobre" class="nav-link hover:text-[var(--accent2)] transition">Sobre</a>
+            <a href="#atuacao" class="nav-link hover:text-[var(--accent2)] transition">Atuação</a>
+            <a href="#psicoterapia" class="nav-link hover:text-[var(--accent2)] transition">Psicoterapia</a>
+                        <a href="#contato" class="nav-link hover:text-[var(--accent2)] transition">Contato</a>
+          </nav>
+
+          <a href="#agendamento" class="inline-flex items-center rounded-full border border-[var(--ink)] px-4 py-2 text-sm hover:bg-[var(--ink)] hover:text-white transition">
+            Agendar
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO (estilo clean, muito espaço, tipografia grande, CTA simples) -->
+    <section id="home" class="pt-10 md:pt-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <p class="text-sm tracking-widest text-[var(--muted)] uppercase">Psicologia • Fenomenologia-existencial</p>
+            <h1 class="display text-4xl md:text-5xl font-semibold leading-tight mt-4">
+              Um espaço de escuta e acolhimento para mulheres
+            </h1>
+            <p class="mt-6 text-lg text-[var(--muted)] leading-relaxed max-w-prose">
+              Sou <span class="text-[var(--ink)] font-semibold">Larissa Barbagelata</span>, psicóloga 
+              <span class="text-[var(--ink)] font-semibold"> (CRP 02/30617)</span>.
+              Aqui você encontra um pouco sobre meu trabalho, minha formação e aquilo que me atravessa, de maneira pessoal e profissional!
+            </p>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <a href="#agendamento" class="inline-flex justify-center rounded-full bg-[var(--accent)] px-6 py-3 text-white hover:bg-[var(--accent2)] transition">
+                Agendar psicoterapia
+              </a>
+              <a href="#sobre" class="inline-flex justify-center rounded-full border border-[var(--line)] bg-[var(--paper)] px-6 py-3 hover:border-[var(--ink)] transition">
+                Conhecer minha abordagem
+              </a>
+            </div>
+
+            <div class="mt-10 flex items-center gap-6 text-sm text-[var(--muted)]">
+              <span class="inline-flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-[var(--warm)]"></span>
+                Atendimento humanizado
+              </span>
+              <span class="inline-flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-[var(--accent2)]"></span>
+                Sigilo e ética
+              </span>
+            </div>
+          </div>
+
+          <!-- Visual (placeholder) -->
+          <div class="md:justify-self-end">
+            <div class="rounded-[28px] p-2 md:p-3">
+              <img
+                src="assets/images/foto.webp"
+                alt="Foto profissional de [Nome da Psicóloga]"
+                class="aspect-[4/5] w-full max-w-md rounded-[22px] object-cover"
+              />
+              <div class="mt-4 flex items-center justify-between text-sm text-[var(--muted)]">
+                <span>[Recife/PE]</span>
+                <span>• Atendimento online</span>
+              </div>
+            </div>
+          </div>
+
+                        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE (texto corrido, sem colunas) -->
+    <section id="sobre" class="section-block">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center">
+          <h2 class="display text-2xl md:text-3xl font-semibold mx-auto">Sobre mim</h2>
+          <p class="mt-4 text-[var(--muted)] leading-relaxed max-w-3xl mx-auto">
+            Sou formada em Psicologia pela Universidade Federal de Pernambuco. Atualmente, curso a pós-graduação em Psicologia Clínica e Saúde Mental (CENAT) e faço mestrado em Psicologia na UFPE.
+          </p>
+          <p class="mt-4 text-[var(--muted)] leading-relaxed max-w-3xl mx-auto">
+            A Fenomenologia-Existencial é a perspectiva que me acompanha nos estudos e na prática, mas também atravessa o modo como compreendo minha própria vida. Ela me ajuda a olhar para as minhas experiências e a perceber o que faz sentido para mim
+          </p>
+          <p class="mt-4 text-[var(--muted)] leading-relaxed max-w-3xl mx-auto">
+            Fora da clínica, gosto de palavras cruzadas, fazer trilhas e caminhadas, andar de bicicleta e de “turistar” pelo lugar onde moro. No meu tempo livre, tenho me aventurado fazendo trabalhos manuais, principalmente pinturas! Gosto muito de ler - especialmente Agatha Christie, minha autora favorita - e tenho me interessado cada vez mais pela literatura brasileira escrita por mulheres.
+          </p>
+          <p class="mt-4 text-[var(--muted)] leading-relaxed max-w-3xl mx-auto">
+            Não acredito em distanciamentos rígidos entre o ser-terapeuta e o ser-pessoa: 
+            é no encontro entre essas dimensões que nasce o cuidado.
+          </p>
+
+          <!-- Galeria de fotos (3 cards, estética minimalista) -->
+          <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <div class="rounded-[22px] border border-[var(--line)] p-2">
+              <div class="aspect-[3/4] rounded-[18px] overflow-hidden bg-[var(--paper)]">
+                <img src="assets/images/sobre-1.webp" alt="Foto profissional 1" class="h-full w-full object-cover" />
+              </div>
+            </div>
+            <div class="rounded-[22px] border border-[var(--line)] p-2">
+              <div class="aspect-[3/4] rounded-[18px] overflow-hidden bg-[var(--paper)]">
+                <img src="assets/images/img2.webp" alt="Foto profissional 2" class="h-full w-full object-cover" />
+              </div>
+            </div>
+            <div class="rounded-[22px] border border-[var(--line)] p-2">
+              <div class="aspect-[3/4] rounded-[18px] overflow-hidden bg-[var(--paper)]">
+                <img src="assets/images/sobre-3.webp" alt="Foto profissional 3" class="h-full w-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATUAÇÃO (antes de Psicoterapia) -->
+    <section id="atuacao" class="section-block">
+      <div class="max-w-7xl mx-auto px-4">
+        <div>
+          <h2 class="display text-2xl md:text-3xl font-semibold text-center mx-auto">Atuação</h2>
+          <p class="mt-3 text-[var(--muted)] max-w-prose mx-auto text-center">
+            Minha trajetória profissional.
+          </p>
+
+          <div class="mt-8 grid md:grid-cols-3 gap-5">
+            <!-- Card 1 -->
+            <div class="rounded-[22px] bg-[var(--paper)]/70 border border-[var(--line)] p-6 hover:border-[var(--accent2)] transition">
+              <div class="flex items-start gap-3">
+                <span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-[var(--accent2)]"></span>
+                <div class="text-left">
+                  <h3 class="font-semibold">Escuta cuidadosa e situada</h3>
+                  <p class="mt-2 text-[var(--muted)] leading-relaxed">Meu trabalho compromete-se com uma escuta atenta ao contexto, especialmente diante de experiências que, muitas vezes, são silenciadas ou invalidadas socialmente.</p>
+                  <div class="mt-4 inline-flex items-center rounded-full border border-[var(--line)] bg-[var(--bg)] px-3 py-1 text-xs text-[var(--muted)]">Ética • Responsabilidade</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="rounded-[22px] bg-[var(--paper)]/70 border border-[var(--line)] p-6 hover:border-[var(--accent2)] transition">
+              <div class="flex items-start gap-3">
+                <span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-[var(--warm)]"></span>
+                <div class="text-left">
+                  <h3 class="font-semibold">Acolhimento de mulheres 18+</h3>
+                  <p class="mt-2 text-[var(--muted)] leading-relaxed">Volto minha clínica para o cuidado de mulheres com mais de 18 anos, que atravessam questões relacionadas a mudanças de vida, vivências de violência, angústias, relações afetivas, crises profissionais e períodos de sofrimento.</p>
+                  <div class="mt-4 inline-flex items-center rounded-full border border-[var(--line)] bg-[var(--bg)] px-3 py-1 text-xs text-[var(--muted)]">Espaço seguro • Reflexão</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="rounded-[22px] bg-[var(--paper)]/70 border border-[var(--line)] p-6 hover:border-[var(--accent2)] transition">
+              <div class="flex items-start gap-3">
+                <span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-[var(--sage)]"></span>
+                <div class="text-left">
+                  <h3 class="font-semibold">Estudos e supervisão</h3>
+                  <p class="mt-2 text-[var(--muted)] leading-relaxed">Além dos atendimentos, participo de encontros formativos, congressos e grupos de estudo. Mantenho uma prática de estudo e supervisão constantes, cuidando do modo como escuto e da abertura para que algo verdadeiro emerja no encontro.</p>
+                  <div class="mt-4 inline-flex items-center rounded-full border border-[var(--line)] bg-[var(--bg)] px-3 py-1 text-xs text-[var(--muted)]">Fenomenologia • Ética da presença</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                  </div>
+
+          <!-- Frase de destaque (abaixo dos cards) -->
+          <div class="mt-10 max-w-3xl mx-auto text-center">
+            <p class="text-lg md:text-xl italic leading-relaxed" style="color:#66210a;">
+              "Para mim, a clínica é um encontro que exige tempo, presença e abertura — um espaço onde o cuidado se constrói no modo como escutamos."
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PSICOTERAPIA (seção com cards minimalistas) -->
+    <section id="psicoterapia" class="section-block">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center">
+          <div>
+            <h2 class="display text-2xl md:text-3xl font-semibold text-center mx-auto">Psicoterapia</h2>
+            <p class="mt-3 text-[var(--muted)] max-w-prose mx-auto text-center">
+              Um espaço de reflexão, compreensão e construção de sentidos.
+            </p>
+          </div>
+          
+        </div>
+
+        <div class="mt-8 grid md:grid-cols-3 gap-5 text-center">
+          <div class="py-6 border-t border-[var(--line)]">
+            <p class="text-sm text-[var(--muted)]">01</p>
+            <h3 class="mt-2 font-semibold">Primeira conversa</h3>
+            <p class="mt-2 text-[var(--muted)]">Entendemos sua demanda e alinhamos expectativas. É o momento para nos conhecermos.</p>
+          </div>
+          <div class="py-6 border-t border-[var(--line)]">
+            <p class="text-sm text-[var(--muted)]">02</p>
+            <h3 class="mt-2 font-semibold">Atendimento online</h3>
+            <p class="mt-2 text-[var(--muted)]">As sessões são realizadas por vídeochamada, com duração média de 1 hora.</p>
+          </div>
+          <div class="py-6 border-t border-[var(--line)]">
+            <p class="text-sm text-[var(--muted)]">03</p>
+            <h3 class="mt-2 font-semibold">Processo</h3>
+            <p class="mt-2 text-[var(--muted)]">Cada processo é único, porque cada pessoa também é. O espaço terapêutico se constrói aos poucos, na relação, com tempo e presença.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- AGENDAMENTO (CTA bem limpo) -->
+    <section id="agendamento" class="section-block">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="bg-[var(--ink)] text-white rounded-[28px] p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <h2 class="display text-2xl md:text-3xl font-semibold text-center mx-auto">Agendar uma sessão</h2>
+            <p class="mt-2 text-white/70 max-w-prose mx-auto text-center">
+               Se você tem interesse em iniciar um processo terapêutico comigo, preencha o formulário pelo botão ao lado. Assim, consigo conhecer um pouco mais sobre você e entrarei em contato assim que possível.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScr-YMvz9VSNic0Ty4wwsdnPcNBuxJzeVhyCMMtEf9YJNl3Hw/viewform" target="_blank" class="inline-flex justify-center rounded-full bg-white text-[var(--ink)] px-6 py-3 hover:opacity-90 transition">
+              Formulário de interesse em psicoterapia
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO (sem formulário) -->
+    <section id="contato" class="section-block pb-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="display text-2xl md:text-3xl font-semibold mx-auto">Contato</h2>
+          <p class="mt-3 text-[var(--muted)] leading-relaxed">
+            Se preferir, também podemos conversar diretamente por WhatsApp ou e-mail.
+          </p>
+
+          <div class="mt-7 text-sm text-[var(--muted)] space-y-2">
+            <p>
+              <span class="text-[var(--ink)] font-semibold">E-mail:</span>
+              <a class="hover:text-[var(--accent2)] transition" href="mailto:psilarissabarbagelata@gmail.com">
+                psilarissabarbagelata@gmail.com
+              </a>
+            </p>
+
+            <p>
+              <span class="text-[var(--ink)] font-semibold">WhatsApp:</span>
+              <a class="hover:text-[var(--accent2)] transition" href="https://wa.me/5581989968109" target="_blank" rel="noopener noreferrer">
+                (81) 98996-8109
+              </a>
+            </p>
+          </div>
+
+          <p class="mt-6 text-[var(--muted)] leading-relaxed">
+            Caso queira me acompanhar mais de perto, você pode me encontrar no Instagram, onde eu compartilho um pouco do meu cotidiano e daquilo que me (co)move.
+          </p>
+
+          <p class="mt-2 text-sm">
+            <a class="font-semibold hover:text-[var(--accent2)] transition" href="https://www.instagram.com/psilarissabarbagelata/" target="_blank" rel="noopener noreferrer">
+              @psilarissabarbagelata
+            </a>
+          </p>
+
+          <!-- Carrossel (embeds oficiais do Instagram) -->
+          <div class="mt-10">
+            <h3 class="text-sm tracking-widest text-[var(--muted)] uppercase">Últimos posts</h3>
+            <div class="mt-4 overflow-x-auto pb-2">
+              <div class="flex gap-4 snap-x snap-mandatory">
+
+                <!-- Post 1 -->
+                <a href="https://www.instagram.com/p/DSlMYLdEu1h/" target="_blank" rel="noopener noreferrer" class="snap-start shrink-0 w-[260px] sm:w-[290px] rounded-[22px] border border-[var(--line)] bg-[var(--paper)]/70 overflow-hidden hover:border-[var(--accent2)] transition">
+                  <div class="p-3">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DSlMYLdEu1h/" data-instgrm-version="14" style="margin:0; max-width:100%; min-width:auto;"></blockquote>
+                  </div>
+                </a>
+
+                <!-- Post 2 -->
+                <a href="https://www.instagram.com/p/DRw8WEWDRtg/" target="_blank" rel="noopener noreferrer" class="snap-start shrink-0 w-[260px] sm:w-[290px] rounded-[22px] border border-[var(--line)] bg-[var(--paper)]/70 overflow-hidden hover:border-[var(--accent2)] transition">
+                  <div class="p-3">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DRw8WEWDRtg/" data-instgrm-version="14" style="margin:0; max-width:100%; min-width:auto;"></blockquote>
+                  </div>
+                </a>
+
+                <!-- Post 3 -->
+                <a href="https://www.instagram.com/p/DQpBcsLjV4w/" target="_blank" rel="noopener noreferrer" class="snap-start shrink-0 w-[260px] sm:w-[290px] rounded-[22px] border border-[var(--line)] bg-[var(--paper)]/70 overflow-hidden hover:border-[var(--accent2)] transition">
+                  <div class="p-3">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQpBcsLjV4w/" data-instgrm-version="14" style="margin:0; max-width:100%; min-width:auto;"></blockquote>
+                  </div>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-[var(--line)] bg-[var(--paper)]">
+      <div class="max-w-7xl mx-auto px-4 py-10">
+        <div class="flex flex-col md:flex-row gap-6 md:items-center md:justify-between text-sm text-[var(--muted)]">
+          <p>© 2026 <span class="text-[var(--ink)]">Larissa Barbagelata</span> • CRP 02/30617</p>
+          <p class="md:text-right">Atendimento online</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Marca a "aba" ativa conforme a seção visível no scroll
+      const links = Array.from(document.querySelectorAll('a.nav-link'));
+      const sections = links
+        .map(a => document.querySelector(a.getAttribute('href')))
+        .filter(Boolean);
+
+      function setActive(id) {
+        links.forEach(a => {
+          const isActive = a.getAttribute('href') === `#${id}`;
+          a.classList.toggle('active', isActive);
+          a.setAttribute('aria-current', isActive ? 'page' : 'false');
+        });
+      }
+
+      // Observa as seções para trocar o ativo no menu
+      const observer = new IntersectionObserver(
+        (entries) => {
+          // pega a seção mais "dominante" na viewport
+          const visible = entries
+            .filter(e => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (visible?.target?.id) setActive(visible.target.id);
+        },
+        {
+          root: null,
+          threshold: [0.25, 0.4, 0.55],
+          // ajusta para considerar o header sticky
+          rootMargin: '-88px 0px -55% 0px'
+        }
+      );
+
+      sections.forEach(sec => observer.observe(sec));
+
+      // Ao carregar, tenta ativar a seção do hash (ou a primeira)
+      const initial = (location.hash || '#sobre').replace('#','');
+      if (document.getElementById(initial)) setActive(initial);
+    </script>
+
+    <!-- Instagram embed (necessário para renderizar as prévias) -->
+    <script async src="https://www.instagram.com/embed.js"></script>
+    <script>
+      // Reprocessa embeds caso o conteúdo seja injetado depois
+      window.addEventListener('load', () => {
+        if (window.instgrm?.Embeds?.process) window.instgrm.Embeds.process();
+      });
+    </script>
+  </body>
+  </html>

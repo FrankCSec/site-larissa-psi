@@ -366,34 +366,31 @@
             </a>
           </p>
 
-          <!-- Carrossel (embeds oficiais do Instagram) -->
+          <!-- Últimos posts (thumbnails estáticas, sem scroll) -->
           <div class="mt-10">
-            <h3 class="text-sm tracking-widest text-[var(--muted)] uppercase">Últimos posts</h3>
-            <div class="mt-4 overflow-x-auto pb-2">
-              <div class="flex gap-4 snap-x snap-mandatory">
+            <h3 class="text-sm tracking-widest text-[var(--muted)] uppercase text-center">Últimos posts</h3>
 
-                <!-- Post 1 -->
-                <a href="https://www.instagram.com/p/DIv8Wdrs5T0/" target="_blank" rel="noopener noreferrer" class="snap-start shrink-0 w-[260px] sm:w-[290px] rounded-[22px] border border-[var(--line)] bg-[var(--paper)]/70 overflow-hidden hover:border-[var(--accent2)] transition">
-                  <div class="p-3">
-                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DIv8Wdrs5T0/" data-instgrm-version="14" style="margin:0; max-width:100%; min-width:auto;"></blockquote>
-                  </div>
-                </a>
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              <!-- Post 1 -->
+              <a href="https://www.instagram.com/p/DIv8Wdrs5T0/" target="_blank" rel="noopener noreferrer"
+                 class="block">
+                <img src="assets/images/ig-1.webp" alt="Post no Instagram"
+                     class="w-full h-auto object-contain" />
+              </a>
 
-                <!-- Post 2 -->
-                <a href="https://www.instagram.com/p/DLhtqi-s0Bw/" target="_blank" rel="noopener noreferrer" class="snap-start shrink-0 w-[260px] sm:w-[290px] rounded-[22px] border border-[var(--line)] bg-[var(--paper)]/70 overflow-hidden hover:border-[var(--accent2)] transition">
-                  <div class="p-3">
-                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DLhtqi-s0Bw/" data-instgrm-version="14" style="margin:0; max-width:100%; min-width:auto;"></blockquote>
-                  </div>
-                </a>
+              <!-- Post 2 -->
+              <a href="https://www.instagram.com/p/DLhtqi-s0Bw/" target="_blank" rel="noopener noreferrer"
+                 class="block">
+                <img src="assets/images/ig-2.webp" alt="Post no Instagram"
+                     class="w-full h-auto object-contain" />
+              </a>
 
-                <!-- Post 3 -->
-                <a href="https://www.instagram.com/p/DOq_UcfjbBz/" target="_blank" rel="noopener noreferrer" class="snap-start shrink-0 w-[260px] sm:w-[290px] rounded-[22px] border border-[var(--line)] bg-[var(--paper)]/70 overflow-hidden hover:border-[var(--accent2)] transition">
-                  <div class="p-3">
-                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DOq_UcfjbBz" data-instgrm-version="14" style="margin:0; max-width:100%; min-width:auto;"></blockquote>
-                  </div>
-                </a>
-
-              </div>
+              <!-- Post 3 -->
+              <a href="https://www.instagram.com/p/DOq_UcfjbBz/" target="_blank" rel="noopener noreferrer"
+                 class="block">
+                <img src="assets/images/ig-3.webp" alt="Post no Instagram"
+                     class="w-full h-auto object-contain" />
+              </a>
             </div>
           </div>
         </div>
@@ -448,8 +445,7 @@
       if (document.getElementById(initial)) setActive(initial);
     </script>
 
-    <!-- Instagram embed (necessário para renderizar as prévias) -->
-    <script async src="https://www.instagram.com/embed.js"></script>
+    
     <script>
       // Reprocessa embeds caso o conteúdo seja injetado depois
       window.addEventListener('load', () => {
